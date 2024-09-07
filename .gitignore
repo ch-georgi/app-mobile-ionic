@@ -1,7 +1,0 @@
-# Ignorar todo por defecto
-*
-
-# No ignorar la carpeta ./eva-parc-1/src y su contenido
-!/eva-parc-1/
-!/eva-parc-1/src/
-!/eva-parc-1/src/**

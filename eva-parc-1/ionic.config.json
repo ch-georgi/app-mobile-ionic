@@ -1,0 +1,7 @@
+{
+  "name": "eva-parc-1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
