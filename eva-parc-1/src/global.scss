@@ -35,3 +35,24 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+.bg-yellow {
+    --background: rgba(255, 184, 0, 1);
+    --color: #fff;
+}
+.bg-dark {
+    --background: #1a1a1a;
+    --color: #fff;
+}
+.toolbar-image {
+    margin-left: 20px;
+}
+ion-toast.toast-login {
+    --background: #c72f2a;
+    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    --color: #ffffff;
+}
+ion-toast.toast-usuario-creadon {
+    --background: #119b28;
+    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    --color: #ffffff;
+}
