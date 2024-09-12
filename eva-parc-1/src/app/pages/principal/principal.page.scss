@@ -1,0 +1,62 @@
+footer {
+    background-color: #e5bd8f;
+    position: relative; /* O fixed si quieres que esté siempre visible */
+    bottom: 0;
+    width: 100%;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 30px 20px 10px; /* Reducción del padding */
+    display: flex; /* Ajuste para diseño flexible */
+    justify-content: space-between; /* Espaciado adecuado entre elementos */
+    align-items: center;
+}
+
+.footerBottom {
+    background-color: #34353d;
+    padding: 20px;
+    text-align: center;
+}
+
+.footerBottom p {
+    color: white;
+}
+.img-a {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.img-b{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.texto{
+    font-size: 24px;                 
+    font-weight: bold;              
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.designer {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 700px) {
+    .footerNav ul {
+        flex-direction: column;
+    }
+
+    .footerNav ul li {
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+    }
+}

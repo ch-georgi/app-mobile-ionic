@@ -35,3 +35,25 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+.img {
+    height: 100px;
+    width: 150px;
+}
+
+ion-slides {
+    height: 250px; /* Ajusta la altura del carrusel */
+    ion-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .fondo {
+    --background: #f8f8f8;
+    --color: #000;
+  }
