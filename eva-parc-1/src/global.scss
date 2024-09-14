@@ -56,3 +56,24 @@ ion-toast.toast-usuario-creadon {
     --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
     --color: #ffffff;
 }
+.img {
+    height: 100px;
+    width: 150px;
+}
+
+ion-slides {
+    height: 250px; /* Ajusta la altura del carrusel */
+    ion-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .fondo {
+    --background: #f8f8f8;
+    --color: #000;
+  }
