@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="bg-yellow">
     <ion-title>Registrar usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,12 +21,21 @@
   </ion-item>
   <ion-button expand="block" (click)="register()" class="bg-dark">Registrar</ion-button>
   <ion-toast
-    [isOpen]="isToastOpen"
+    [isOpen]="isToastOpenCreated"
     message="Usuario creado satisfactoriamente"
     [duration]="2000"
-    (didDismiss)="setOpen(false)"
+    (didDismiss)="setOpenCreated(false)"
     position="bottom"
     icon="checkmark-circle-outline"
-    class="toast-usuario-creado"
+    class="toast-OK"
+  ></ion-toast>
+  <ion-toast
+    [isOpen]="isToastOpenError"
+    message="El usuario ya existe!"
+    [duration]="2000"
+    (didDismiss)="setOpenError(false)"
+    position="bottom"
+    icon="alert-circle-outline"
+    class="toast-error"
   ></ion-toast>
 </ion-content>

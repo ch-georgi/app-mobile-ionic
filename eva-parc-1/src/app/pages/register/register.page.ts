@@ -9,34 +9,60 @@ import { NavigationExtras, Router } from '@angular/router';
 export class RegisterPage implements OnInit {
   nuevoUsuario = { username: '', password: '', name: '' };
   usuariosCreados: any[] = [];
-  isToastOpen = false;
+  isToastOpenCreated = false;
+  isToastOpenError = false;
 
   constructor(private router: Router) {
-    const usuariosCache = localStorage.getItem('usuariosCreados');
-    if (usuariosCache) {
-      this.usuariosCreados = JSON.parse(usuariosCache);
-    }
   }
 
   ngOnInit() {
     console.log("");
+    let extras = this.router.getCurrentNavigation()?.extras;
+
+    if(extras?.state) {
+      this.usuariosCreados = extras.state["usuariosCreados"];
+      console.log(extras.state);
+    }else {
+      this.usuariosCreados = [];
+    }
+    console.log(this.usuariosCreados);
   }
 
   register() {
     if (this.nuevoUsuario.username && this.nuevoUsuario.password && this.nuevoUsuario.name) {
-      this.usuariosCreados.push({ ...this.nuevoUsuario });
-      localStorage.setItem('usuariosCreados', JSON.stringify(this.usuariosCreados));
-      this.setOpen(true);
+      console.log("campos rellenados ok");
+      console.log(this.nuevoUsuario);
+      const usuario = this.usuariosCreados.find(
+        cred => cred.username === this.nuevoUsuario.username);
+      if(usuario){
+        console.log(usuario);
+        this.setOpenError(true);
+        this.nuevoUsuario.username = '';
+        this.nuevoUsuario.password = '';
+        this.nuevoUsuario.name = '';
+        return;
+      }else{
+        console.log("no se encontro usuario con username "+this.nuevoUsuario.username);
+        this.usuariosCreados.push({ ...this.nuevoUsuario });
+      this.setOpenCreated(true);
       setTimeout(() => {
-        let extras: NavigationExtras = {
-          replaceUrl: true
-        };
-        this.router.navigate(['login'], extras);
+        this.volver();
       }, 2000);
+      }      
     }
   }
-  setOpen(isOpen: boolean) {
-    this.isToastOpen = isOpen;
+  setOpenCreated(isOpen: boolean) {
+    this.isToastOpenCreated = isOpen;
+  }
+  setOpenError(isOpen: boolean) {
+    this.isToastOpenError = isOpen;
+  }
+  volver(){
+    let extras: NavigationExtras = {
+      state: {usuariosCreados:this.usuariosCreados},
+      replaceUrl: true
+    };
+    this.router.navigate(['login'], extras);
   }
 
 }

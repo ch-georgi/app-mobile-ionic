@@ -46,15 +46,16 @@
 .toolbar-image {
     margin-left: 20px;
 }
-ion-toast.toast-login {
-    --background: #c72f2a;
-    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
-    --color: #ffffff;
-}
-ion-toast.toast-usuario-creadon {
+
+ion-toast.toast-OK {
     --background: #119b28;
     --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
     --color: #ffffff;
+}
+ion-toast.toast-error {
+  --background: #b3020b;
+  --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  --color: #ffffff;
 }
 .img {
     height: 100px;

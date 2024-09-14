@@ -15,14 +15,19 @@ export class LoginPage implements OnInit {
   usuariosCreados: any[] = [];
 
   constructor(private router: Router) {
-    const usuariosCache = localStorage.getItem('usuariosCreados');
-    if (usuariosCache) {
-      this.usuariosCreados = JSON.parse(usuariosCache);
-    }
   }
 
   ngOnInit() {
     console.log("");
+    let extras = this.router.getCurrentNavigation()?.extras;
+
+    if(extras?.state) {
+      this.usuariosCreados = extras.state["usuariosCreados"];
+      console.log(extras.state);
+    }else {
+      this.usuariosCreados = [];
+    }
+    console.log(this.usuariosCreados);
   }
 
   login(){
@@ -36,7 +41,9 @@ export class LoginPage implements OnInit {
     if (usuario) {
       this.spinnerVisible = true;
       let extras: NavigationExtras = {
-        state: { usuarioLogin: usuario },
+        state: { usuario: this.mdl_user,
+                  usuariosCreados:this.usuariosCreados
+                },
         replaceUrl: true
       }
       setTimeout(() => {
@@ -53,8 +60,9 @@ export class LoginPage implements OnInit {
   }
   nuevoUsuario(){
     let extras: NavigationExtras = {
+      state: {usuariosCreados:this.usuariosCreados},
       replaceUrl: true
-    }
+    };
     this.router.navigate(['register'], extras);
   }
   

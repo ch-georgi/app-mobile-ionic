@@ -9,8 +9,9 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class PrincipalPage implements OnInit {
 
+  usuarioLogin: any;
   usuario: string = '';
-  contrasena: string = '';
+  usuariosCreados: any[] = [];
 
   constructor(private router: Router) { }
 
@@ -19,14 +20,30 @@ export class PrincipalPage implements OnInit {
 
     if(extras?.state) {
       this.usuario = extras.state["usuario"];
-      this.contrasena = extras.state["contrasena"];
+      this.usuariosCreados = extras.state["usuariosCreados"];
+      const usuarioLogin = this.usuariosCreados.find(
+        cred => cred.username === this.usuario);
+        if(usuarioLogin){
+          this.usuarioLogin = usuarioLogin;
+          this.usuario = usuarioLogin.name.toUpperCase();
+        }
     }
   }
 
   cerrarSEsion() {
     let extras: NavigationExtras = {
+      state: {usuariosCreados:this.usuariosCreados},
       replaceUrl: true
-    }
+    };
     this.router.navigate(['login'], extras);
+  }
+
+  editarUsuario(){
+    let extras: NavigationExtras = {
+      state: {usuario:this.usuarioLogin,
+              usuariosCreados:this.usuariosCreados},
+      replaceUrl: true
+    };
+    this.router.navigate(['change-pwd'], extras);
   }
 }
