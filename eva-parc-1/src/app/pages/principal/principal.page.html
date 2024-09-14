@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> <img class="img" alt="logo duoc" src="https://www.duoc.cl/wp-content/themes/wordpress-duoc-cl/images/logo-duoc.svg"/>
+  <ion-toolbar class="bg-yellow">
+    <ion-title> <img src="assets/img/logo-duoc.svg" class="toolbar-image" width="auto" height="20px">
       Bienvenido {{ usuario }}</ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="editarUsuario()">
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
       <ion-button (click)="cerrarSEsion()">
         <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
       </ion-button>
@@ -17,10 +20,21 @@
     <ion-card-header class="header-centered">
       <ion-card-title class="texto"> Sede Padre Alonso de Ovalle</ion-card-title>
       <img class="img-a" alt="Padre_alonso_ovalle" src="assets/img/Padre_alonso_ovalle.jpg" />
+      <ion-card-subtitle><p><strong>Dirección:</strong> Padre Alonso de Ovalle 1586, Metro La Moneda, Santiago Centro</p>
+        <p><strong>Teléfono:</strong> +56 223540600</p>
+        <p><strong>Punto Estudiantil:</strong> +56 23540618</p>
+      </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
-
-  <h1>Sobre la sede</h1>
+  <ion-card>
+    <ion-card-header class="header-centered">
+      <ion-card-title class="texto"> Sede Maipú</ion-card-title>
+      <img class="img-a" alt="Maipu" src="assets/img/sede_maipu-1.jpg" />
+      <ion-card-subtitle><p><strong>Dirección:</strong> Av. España 8, Santiago Centro, Metro Estación República (esquina Alameda)</p>
+        <p><strong>Teléfonos:</strong> +56 442201098 / +56 227120245</p>
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
 </ion-content>
 
 <footer>  

@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'principal',
     loadChildren: () => import('./pages/principal/principal.module').then( m => m.PrincipalPageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'change-pwd',
+    loadChildren: () => import('./pages/change-pwd/change-pwd.module').then( m => m.ChangePwdPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="bg-yellow">
+    <ion-title>Editando usuario {{ usuario.username }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="usuario.username" placeholder="usuario.username" label="Usuario" labelPlacement="floating" [disabled]="true"></ion-input>
+  </ion-item>
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="confirmPrevPassword" type="password" placeholder="Contraseña anterior" label="Contraseña anterior" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="password" type="password" placeholder="Nueva contraseña" label="Nueva contraseña" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item class="input" lines="none">
+    <ion-input [(ngModel)]="name" placeholder="Nombre" label="Nombre" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="editar()" class="bg-dark">Actualizar</ion-button>
+  <ion-toast
+    [isOpen]="isToastOpenEdited"
+    message="Usuario editado satisfactoriamente"
+    [duration]="2000"
+    (didDismiss)="setOpenEdited(false)"
+    position="bottom"
+    icon="checkmark-circle-outline"
+    class="toast-OK"
+  ></ion-toast>
+  <ion-toast
+    [isOpen]="isToastOpenErrorEdit"
+    message="Las contraseñas no coinciden!"
+    [duration]="2000"
+    (didDismiss)="setOpenEditedError(false)"
+    position="bottom"
+    icon="alert-circle-outline"
+    class="toast-error"
+  ></ion-toast>
+</ion-content>
